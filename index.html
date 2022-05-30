@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+
+    <title>Testing | Login</title>
+
+    <style>
+.log-holder{
+   margin:20px;
+}
+      ul{
+
+        background: tan;
+        width:250px;
+
+      }
+.log-list-box {
+    display: none;
+}
+.log-list-box.active {
+    display: block;
+}
+</style>  
+
+  </head>
+  <body>
+
+       
+  <div class="log-holder">
+  <button type="button" class="btnbasic btn-white" id="btntst">Test</button>
+  
+  <div class="log-list-box">
+    <p>Testing Log</p>
+    <ul class="log-list">
+      <li> Connection established successfully</li>
+      <li> Tool path found</li>
+      <li> License verified</li>
+    </ul>
+  </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+    <script>
+    $(document).ready(function () {
+        //$("#btntst").click(function () {
+        //    $(".log-list-box").toggle('show');
+        //});
+        //$('#btntst').window.onclick(function () {
+        //    $(".log-list-box").hide('.log-list-box');
+        //});
+
+        var $el = $("#btntst");
+        var $ee = $(".log-list-box");
+        $el.click(function (e) {
+            e.stopPropagation();
+            $(".log-list-box").toggleClass('active');
+        });
+        $(document).on('click', function (e) {
+            if (($(e.target) != $el) && ($ee.hasClass('active'))) {
+                $ee.removeClass('active');
+                // console.log("yes");
+            }
+        });
+
+
+    });
+</script>
+  </body>
+</html>
